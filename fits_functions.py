@@ -6,7 +6,7 @@ This temporary script file is located here:
 C:\Users\Maria\.spyder2\.temp.py
 """
 ##########
-# DISCRIPTION
+# DESCRIPTION
 #    opens fits files and saves data into varibles
 # PARAMETERES
 #    filename1 and filename2 will be the files you
@@ -24,7 +24,7 @@ def open_fits(filename1,filename2):
     return d1,d2
     
 ##########
-# DISCRIPTION
+# DESCRIPTION
 #    change header "cmmtobs' and 'object' in the input file -> write changes
 #    to the original file.
 # PARAMETERES
@@ -53,7 +53,7 @@ def change_header(fil):
 """change_header('c6747t0043o00.fits')"""
 
 ##########
-# DISCRIPTION
+# DESCRIPTION
 #    adds or appends the card, 'headername' -> 
 #    writes (header attribute, comment) ->
 #    saves the file and closes it.
@@ -78,7 +78,7 @@ def append_header(fil):
 
 
 ##########
-# DISCRIPTION
+# DESCRIPTION
 #    subtracts two images and saves them to a new fits file.
 """note: if the first file already has the desired header information use 
 f1[].header instead of f2[].header you"""
@@ -105,7 +105,7 @@ def image_subtraction(image1,image2):
     hdu.writeto(filename3)
 
 ##########
-# DISCRIPTION
+# DESCRIPTION
 #    divides two images and saves them to a new fits file.
 """note: if the first file already has the desired header information use 
 f1[].header instead of f2[].header you"""
@@ -131,7 +131,7 @@ def image_division(image1,image2):
     hdu.writeto(filename4)
 
 ###########
-# DISCRIPTION
+# DESCRIPTION
 #    finds the stadard deviation of the pixel values in an image then closes
 #    the file.
 # PARAMETERS 
@@ -149,7 +149,7 @@ def std_of_plv(image,header_pos = 0):
 """std_of_plv('nsat_median.fits')"""
 
 ##########
-# DISCRIPTION
+# DESCRIPTION
 #    normalizes an image and saves the data and original header to a new 
 #    fits file then closes the file.
 # PARAMETERS
@@ -171,7 +171,7 @@ def normalize(fil,header_pos):
 '''normalize('average_bflat.fits')'''
 
 ##########
-# DISCRIPTION
+# DESCRIPTION
 #     Creates a new header card called filter and sets it equal to 'Ha 6620'
 # PARAMETERS
 #     x      - tells function where file is with path joined with filename
@@ -190,7 +190,7 @@ def new_headercard(images,path,header_pos = 0, keyword="",phrase=""):
         f.close()
 
 ##########
-# DISCRIPTION
+# DESCRIPTION
 #    opens a fits file-> displays some header info -> stores data into
 #    the variable f -> picks out pieces of the code in the first column ->
 #    plots the data in a scatter plot -> closes the file.
