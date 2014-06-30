@@ -47,7 +47,7 @@ def sort(files):
     return images	
 
 ##########
-# DISCRIPTION
+# DESCRIPTION
 #    opens the file -> acesses the data -> choses the sections of the overscan ->
 #    unravles the arrays so they are both 1D and horizontally stacks them ->
 #    computes the median and subratcs it from the orginal data.
@@ -86,7 +86,7 @@ def Ovs_sub(images):
         f1.close()
 
 ##########
-# DISCRIPTION
+# DESCRIPTION
 #    loops through images and opens the files -> picks a portion of the image -> 
 #    print the shape of the new array -> saves trimed array into a new fits 
 #    file with the old header.
