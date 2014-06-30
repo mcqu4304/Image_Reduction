@@ -53,7 +53,7 @@ def sort(files):
     return images	
     
 ##########
-# DISCRIPTION
+# DESCRIPTION
 #    subtracts two images and saves them to a new fits file with the old header.
     """note: if the first file already has the desired header information use 
        f1[].header instead of f2[].header you"""
@@ -81,7 +81,7 @@ def image_subtraction(images,image2):
         f2.close()
 
 ##########
-# DISCRIPTION
+# DESCRIPTION
 #    divides two images and saves them to a new fits file with the old header.
     """note: if the first file already has the desired header information use 
        f1[].header instead of f2[].header you"""
@@ -110,7 +110,7 @@ def image_division(images,image2):
         f2.close()
 
 ##########
-# DISCRIPTION
+# DESCRIPTION
 #    normalizes an image and saves the data and original header to a new 
 #    fits file then closes the file.
     """note: you don't need the second file if the first file already has the 
@@ -138,7 +138,7 @@ def normalize(images):
         f.close()
 
 ##########
-# DISCRIPTION
+# DESCRIPTION
 #    finds the mean image by looping through the list of images to add them
 #    and dividing by the length of the list and saves the data to a new 
 #    fits file then closes the file.
