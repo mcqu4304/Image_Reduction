@@ -26,7 +26,7 @@ import os
 ##########
 
 def main():
-    base_path = 'C:\Users\Maria\Physics_Research\mar28_14\Renamed'
+    base_path = 'C:\Users\Maria\Physics_Research\Originals_Renamed'
     os.chdir(base_path)
     print os.getcwd()
     files = os.listdir(base_path)    
@@ -79,12 +79,12 @@ def file(images,filename):
         os.remove(filename)
     # creates a new catalog and puts into the variable info
     info = open(filename, "w")
-    info.write("%10s,%20s,%20s,%15s,%20s,%30s,%20s,%10s\n" % ("Filenumber","Name","Filter","Exposure Time","Air Mass","Focus","Time Taken","Comments"))    
+    info.write("%10s,%15s,%15s,%15s,%20s,%30s,%20s,%10s\n" % ("Filenumber","Name","Filter","Exposure Time","Air Mass","Focus","Time Taken","Comments"))    
     # wirtes information from lists into files
     for i in range(len(images)):
         info.write('%10s,' % filenum[i])
-        info.write('%20s' % names[i])
-        info.write('%20s' % filters[i])
+        info.write('%15s' % names[i])
+        info.write('%15s' % filters[i])
         info.write('%15s,' % exp[i])        
         info.write('%15s,' % air[i])        
         info.write('%20s,' % foc[i])
