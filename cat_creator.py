@@ -85,7 +85,7 @@ def file(images,filename):
         info.write('%10s,' % filenum[i])
         info.write('%20s' % names[i])
         info.write('%20s' % filters[i])
-        info.write('%15f,' % exp[i])        
+        info.write('%15s,' % exp[i])        
         info.write('%15s,' % air[i])        
         info.write('%20s,' % foc[i])
         info.write('%30s,' % time[i])
