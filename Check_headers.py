@@ -85,7 +85,7 @@ def file(images,filename):
     info.close()
     
 ##########
-# DISCRIPTION
+# DESCRIPTION
 #   builds a list called filnum that contains filenumbers
 # PARAMETERS
 #   filnum - list of filenumbers from filename()
@@ -99,7 +99,7 @@ def filenum_build(images):
     return filnum    
 
 ##########
-# DISCRIPTION
+# DESCRIPTION
 #   loops through the filename and picks out the 4 character filenumber
 # PARAMETERS
 #   f - constructs the filenumber
@@ -239,7 +239,7 @@ def color(x):
     
 
 ##########
-# DISCRIPTION
+# DESCRIPTION
 #   builds a list called foc that contains the focus string from the header
 # PARAMETERS
 #   foc - list of focus strings
