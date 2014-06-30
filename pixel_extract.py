@@ -18,9 +18,8 @@ def pixel_ext(target_dir,image):
     #creates lists of images 
     y_images,add = Y_sections(image,target_dir)
     x_images = X_sections(image,target_dir)
-    com_images = array(x_images) + array(y_images)
-    print com_images
-    median_fits(com_images, add + "sky_medain.fits",add)    
+    median_fits(y_images, "Y" + add + "sky_medain.fits",add) 
+    median_fits(x_images, "X" + add + "sky_medain.fits",add) 
     
     
     
@@ -78,7 +77,7 @@ def new_headercard(image,path,keyword ="",phrase=""):
 
 
 def median_fits(data_list,newfile_name="",add =""):
-    dm = data_list
+    dm = array(data_list)
 
     #axis 0 is the intensity
     med =  median(dm, axis = 0)
