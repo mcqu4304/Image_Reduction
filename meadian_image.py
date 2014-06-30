@@ -39,7 +39,7 @@ def sort(files):
     return images
     
 ##########
-# DISCRIPTION
+# DESCRIPTION
 #    
 def array_list(images,path,keyword="",phrase=""):
     #list of data    
@@ -76,7 +76,7 @@ def median_fits(data_list,newfile_name=""):
     return newfile_name
 
 ##########
-# DISCRIPTION
+# DESCRIPTION
 #     Creates a new header card called filter and sets it equal to 'Ha 6620'
 # PARAMETERS
 #     x      - tells function where file is with path joined with filename
