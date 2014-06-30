@@ -69,7 +69,8 @@ def sort(files):
 
 def file(images,filename):
     filenum = filenum_build(images)
-    filter = color_build(images)
+    filters = color_build(images)
+    names = name_build(images)
     exp = exp_List_build(images)
     air = Airmass_build(images)
     foc = Focus_build(images)    
@@ -78,15 +79,16 @@ def file(images,filename):
         os.remove(filename)
     # creates a new catalog and puts into the variable info
     info = open(filename, "w")
-    info.write("%10s,%15s,%15s,%20s,%30s,%20s,%10s\n" % ("Filenumber","Exposure Time","Air Mass","Focus","Time Taken","Object","Comments"))    
+    info.write("%10s,%15s,%15s,%20s,%30s,%20s,%10s\n" % ("Filenumber","Name","Exposure Time","Air Mass","Focus","Time Taken","Comments"))    
     # wirtes information from lists into files
     for i in range(len(images)):
         info.write('%10s,' % filenum[i])
+        info.write('%20s' % names[i])
+        info.write('%20s' % filters[i])
         info.write('%15f,' % exp[i])        
         info.write('%15s,' % air[i])        
         info.write('%20s,' % foc[i])
         info.write('%30s,' % time[i])
-        info.write('%20s' % filter[i])
         info.write('\n')         
         
     info.close()
@@ -216,10 +218,10 @@ def date_Time(x):
 #	filter
 ##########
 def color_build(images):
-    filter = []
+    filters = []
     for i in images:
-	    filter.append(color(i))
-    return filter
+	    filters.append(color(i))
+    return filters
 		
 
 ##########
@@ -236,8 +238,8 @@ def color_build(images):
 def color(x):
     hdulist = fits.open(x)
     head = hdulist[0].header	
-    if 'OBJECT' in head.keys():    
-        f = head ['OBJECT']
+    if 'FILTER' in head.keys():    
+        f = head ['FILTER']
         hdulist.close()
     else:
         f = "None"
@@ -317,6 +319,43 @@ def airmass(x):
         a = "None"
     hdulist.close()
     return a 
-	  
+	
+##########
+# DESCRIPTION
+#	Takes each image and adds color's return value to the list filter.
+# PARAMETERS	
+#	images - list of fits files
+#	filter - a list of objects observed
+# RETURNS
+#	filter
+##########
+def name_build(images):
+    names = []
+    for i in images:
+	    names.append(color(i))
+    return names
+		
+
+##########
+# DESCRIPTION
+#	Opens a fits header, takes the object and returns it.
+# PARAMETERS
+#	x - input file
+#	hdulist - image information
+#	head - the header
+#	f - the object
+# RETURN
+#	object observed and through what filter if there was one
+##########
+def name(x):
+    hdulist = fits.open(x)
+    head = hdulist[0].header	
+    if 'OBJECT' in head.keys():    
+        n = head ['OBJECT']
+        hdulist.close()
+    else:
+        n = "None"
+    hdulist.close()
+    return n  
     
 if __name__=='__main__': main() 
