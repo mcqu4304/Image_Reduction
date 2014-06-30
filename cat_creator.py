@@ -79,7 +79,7 @@ def file(images,filename):
         os.remove(filename)
     # creates a new catalog and puts into the variable info
     info = open(filename, "w")
-    info.write("%10s,%15s,%15s,%20s,%30s,%20s,%10s\n" % ("Filenumber","Name","Exposure Time","Air Mass","Focus","Time Taken","Comments"))    
+    info.write("%10s,%20s,%20s,%15s,%20s,%30s,%20s,%10s\n" % ("Filenumber","Name","Filter","Exposure Time","Air Mass","Focus","Time Taken","Comments"))    
     # wirtes information from lists into files
     for i in range(len(images)):
         info.write('%10s,' % filenum[i])
