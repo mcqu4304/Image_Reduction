@@ -14,15 +14,33 @@ from numpy import *
 def pixel_ext(target_dir,image):
     #change directory    
     os.chdir(target_dir)
+    files = os.listdir(target_dir)
+    images = sort(files)
+    for i in images:
+        #creates lists of images 
+        y_images,add = Y_sections(image,target_dir)
+        x_images = X_sections(image,target_dir)
+        medx = median_fits(y_images, "Y" + add + "sky_medain.fits"+ i,add) 
+        medy = median_fits(x_images, "X" + add + "sky_medain.fits"+ i,add) 
+        med(medx)
+        med(medy)
     
-    #creates lists of images 
-    y_images,add = Y_sections(image,target_dir)
-    x_images = X_sections(image,target_dir)
-    median_fits(y_images, "Y" + add + "sky_medain.fits",add) 
-    median_fits(x_images, "X" + add + "sky_medain.fits",add) 
-    
-    
-    
+def sort(files):
+    images = []
+    for i in files:
+        [name, ext] = os.path.splitext(i)
+        if ext == '.fits' or ext == '.fit' or ext == '.fts':
+            images.append(i)		
+    return images	
+
+ def med(image):
+     f = fits.open(image)
+     d = f[0].data
+     output = d - median(d)
+     hdu = fits.PrimaryHDU(output)
+     hdu.writeto("med" +image)
+     
+     
 def Y_sections(image, path):    
     new_images = []    
     for j in range(0,3880,10):
